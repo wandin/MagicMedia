@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MagicMedia.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{47BA3824-CDEE-49B1-8833-3E4CB312248F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MagicMedia.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MagicMediaEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{9AB1FDFF-2095-4B8C-B315-044E49331A6B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\MagicMedia">
+      <UniqueIdentifier>{F830834C-A7BF-4170-97C3-18523F405E2C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MagicMedia\MagicMedia.Build.cs">
+      <Filter>Source\MagicMedia</Filter>
+    </None>
+    <Filter Include="Source\MagicMedia\Private">
+      <UniqueIdentifier>{C70E27D4-46A0-4842-9E15-CDFA4EBFE201}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\Door.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\InteractionInterface.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\Lever.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\MagicMedia.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\MagicMediaCharacter.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\MagicMediaGameMode.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MagicMedia\Private\PlayerNameUI.cpp">
+      <Filter>Source\MagicMedia\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\MagicMedia\Public">
+      <UniqueIdentifier>{848F2B41-03D8-42F7-A0A4-0EB518CE06EE}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\Door.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\InteractionInterface.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\Lever.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\MagicMedia.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\MagicMediaCharacter.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\MagicMediaGameMode.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MagicMedia\Public\PlayerNameUI.h">
+      <Filter>Source\MagicMedia\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

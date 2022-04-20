@@ -1,0 +1,3 @@
+D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Definitions.MagicMedia.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h

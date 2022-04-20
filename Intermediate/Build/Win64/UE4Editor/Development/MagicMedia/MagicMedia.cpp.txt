@@ -1,0 +1,2 @@
+D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Definitions.MagicMedia.h
+D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Source\MagicMedia\Public\MagicMedia.h

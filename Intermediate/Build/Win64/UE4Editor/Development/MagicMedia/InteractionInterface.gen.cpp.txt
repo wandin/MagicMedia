@@ -1,0 +1,5 @@
+D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Definitions.MagicMedia.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Unreal Engine\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Source\MagicMedia/Public/InteractionInterface.h
+D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Inc\MagicMedia\InteractionInterface.generated.h

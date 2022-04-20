@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "MagicMedia",
+			"Path": "D:\\GAMES CODED\\MAGIC MEDIA\\MagicMedia\\Source\\MagicMedia.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "MagicMediaEditor",
+			"Path": "D:\\GAMES CODED\\MAGIC MEDIA\\MagicMedia\\Source\\MagicMediaEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
