@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeMagicMedia_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xF73D895E,
-				0x7E774E41,
+				0xCE80F12A,
+				0x499845AF,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

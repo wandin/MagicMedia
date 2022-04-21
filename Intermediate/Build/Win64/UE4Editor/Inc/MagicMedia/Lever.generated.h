@@ -14,8 +14,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MAGICMEDIA_Lever_generated_h
 
 #define MagicMedia_Source_MagicMedia_Public_Lever_h_23_SPARSE_DATA
-#define MagicMedia_Source_MagicMedia_Public_Lever_h_23_RPC_WRAPPERS
-#define MagicMedia_Source_MagicMedia_Public_Lever_h_23_RPC_WRAPPERS_NO_PURE_DECLS
+#define MagicMedia_Source_MagicMedia_Public_Lever_h_23_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnRep_InteractWithMe); \
+	DECLARE_FUNCTION(execInteractWithMe);
+
+
+#define MagicMedia_Source_MagicMedia_Public_Lever_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnRep_InteractWithMe); \
+	DECLARE_FUNCTION(execInteractWithMe);
+
+
 #define MagicMedia_Source_MagicMedia_Public_Lever_h_23_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesALever(); \
@@ -23,7 +33,15 @@ private: \
 public: \
 	DECLARE_CLASS(ALever, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/MagicMedia"), NO_API) \
 	DECLARE_SERIALIZER(ALever) \
-	virtual UObject* _getUObject() const override { return const_cast<ALever*>(this); }
+	virtual UObject* _getUObject() const override { return const_cast<ALever*>(this); } \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		Door=NETFIELD_REP_START, \
+		bIsOpen, \
+		LightBulb, \
+		NETFIELD_REP_END=LightBulb	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define MagicMedia_Source_MagicMedia_Public_Lever_h_23_INCLASS \
@@ -33,7 +51,15 @@ private: \
 public: \
 	DECLARE_CLASS(ALever, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/MagicMedia"), NO_API) \
 	DECLARE_SERIALIZER(ALever) \
-	virtual UObject* _getUObject() const override { return const_cast<ALever*>(this); }
+	virtual UObject* _getUObject() const override { return const_cast<ALever*>(this); } \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		Door=NETFIELD_REP_START, \
+		bIsOpen, \
+		LightBulb, \
+		NETFIELD_REP_END=LightBulb	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define MagicMedia_Source_MagicMedia_Public_Lever_h_23_STANDARD_CONSTRUCTORS \
@@ -60,15 +86,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ALever); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ALever)
 
 
-#define MagicMedia_Source_MagicMedia_Public_Lever_h_23_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO___RootComponent() { return STRUCT_OFFSET(ALever, _RootComponent); } \
-	FORCEINLINE static uint32 __PPO__LeverMesh() { return STRUCT_OFFSET(ALever, LeverMesh); } \
-	FORCEINLINE static uint32 __PPO__LightBulb() { return STRUCT_OFFSET(ALever, LightBulb); } \
-	FORCEINLINE static uint32 __PPO__InteractionWidget() { return STRUCT_OFFSET(ALever, InteractionWidget); } \
-	FORCEINLINE static uint32 __PPO__bIsOpen() { return STRUCT_OFFSET(ALever, bIsOpen); } \
-	FORCEINLINE static uint32 __PPO__Door() { return STRUCT_OFFSET(ALever, Door); }
-
-
+#define MagicMedia_Source_MagicMedia_Public_Lever_h_23_PRIVATE_PROPERTY_OFFSET
 #define MagicMedia_Source_MagicMedia_Public_Lever_h_20_PROLOG
 #define MagicMedia_Source_MagicMedia_Public_Lever_h_23_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

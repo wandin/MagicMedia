@@ -35,12 +35,23 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
 	virtual void InteractWithMe() override;
+	UFUNCTION()
+	virtual void OnRep_InteractWithMe() override;
+
 
 	virtual void ShowInteractionWidget() override;
 	virtual void HideInteractionWidget() override;
 
-private:
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
+
+	UPROPERTY(EditInstanceOnly, ReplicatedUsing = OnRep_InteractWithMe)
+	ADoor* Door;
+
+public:
+	UPROPERTY(ReplicatedUsing = OnRep_InteractWithMe)
+	bool bIsOpen;
 
 	UPROPERTY(EditAnywhere)
 	class USceneComponent* _RootComponent;
@@ -48,15 +59,10 @@ private:
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent* LeverMesh;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, ReplicatedUsing = OnRep_InteractWithMe)
 	class UPointLightComponent* LightBulb;
 
 	UPROPERTY(EditAnywhere)
 	class UWidgetComponent* InteractionWidget;
 
-	UPROPERTY(EditAnywhere)
-	bool bIsOpen;
-
-	UPROPERTY(EditInstanceOnly)
-	ADoor* Door;
 };

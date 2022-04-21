@@ -14,8 +14,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MAGICMEDIA_InteractionInterface_generated_h
 
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_SPARSE_DATA
-#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS
-#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnRep_InteractWithMe); \
+	DECLARE_FUNCTION(execInteractWithMe);
+
+
+#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnRep_InteractWithMe); \
+	DECLARE_FUNCTION(execInteractWithMe);
+
+
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	MAGICMEDIA_API UInteractionInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \

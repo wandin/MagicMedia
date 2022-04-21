@@ -1,0 +1,26 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-MagicMedia-8889.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\MagicMediaEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Door.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\InteractionInterface.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Lever.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\MagicMedia.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\MagicMediaCharacter.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\MagicMediaGameMode.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\PlayerNameUI.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Door.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\InteractionInterface.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Lever.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\MagicMedia.init.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\MagicMediaCharacter.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\MagicMediaGameMode.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\PlayerNameUI.gen.cpp.obj"
+"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\Default.rc2.res"
+/OUT:"D:\GAMES CODED\MAGIC MEDIA\MagicMedia\Intermediate\Build\Win64\UE4Editor\Development\MagicMedia\UE4Editor-MagicMedia-8889.lib"
+/INCLUDE:IMPLEMENT_MODULE_MagicMedia

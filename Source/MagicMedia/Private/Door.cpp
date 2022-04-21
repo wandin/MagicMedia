@@ -13,8 +13,6 @@ ADoor::ADoor()
 	Door->SetupAttachment(RootComponent);
 
 	bReplicates = true;
-
-	
 }
 
 void ADoor::BeginPlay()
@@ -26,19 +24,26 @@ void ADoor::BeginPlay()
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
-void ADoor::OpenDoor()
+void ADoor::ToggleDoor()
 {
-	FRotator CurrentRotation = GetActorRotation();
-	CurrentRotation.Yaw += OpenedYaw;
+	OnRep_ToggleDoor();
+}
+
+void ADoor::OnRep_ToggleDoor()
+{
+	UWorld* const World = GetWorld();
+	if (World == NULL) return;
+
+	CurrentRotation = GetActorRotation();
+	CurrentRotation.Yaw += DoorYaw;
 	SetActorRotation(CurrentRotation);
 }
 
-void ADoor::CloseDoor()
+void ADoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
-	FRotator CurrentRotation = GetActorRotation();
-	CurrentRotation.Yaw += ClosedYaw;
-	SetActorRotation(CurrentRotation);
+	DOREPLIFETIME(ADoor, DoorYaw);
+	DOREPLIFETIME(ADoor, CurrentRotation);
+	DOREPLIFETIME(ADoor, Door);
 }

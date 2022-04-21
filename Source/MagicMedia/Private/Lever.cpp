@@ -3,14 +3,12 @@
 
 #include "Lever.h"
 
+#include "Kismet/GameplayStatics.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values
 ALever::ALever()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-	
 	_RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root Component"));
 	RootComponent = _RootComponent;
 
@@ -20,14 +18,11 @@ ALever::ALever()
 	LightBulb = CreateDefaultSubobject<UPointLightComponent>(TEXT("Light"));
 	LightBulb->SetupAttachment(RootComponent);
 
-
 	InteractionWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("Widget Component"));
 	InteractionWidget->SetupAttachment(RootComponent);
+				/*---------------------------------------------------------*/
 
-	bIsOpen = false;
-
-	bReplicates = true;
-	
+	bReplicates = true;	
 }
 
 // Called when the game starts or when spawned
@@ -49,22 +44,29 @@ void ALever::Tick(float DeltaTime)
 
 void ALever::InteractWithMe()
 {
+	if (HasNetOwner())
+	{
+		OnRep_InteractWithMe();
+	}
+}
+
+void ALever::OnRep_InteractWithMe()
+{
 	if (Door == nullptr) return;
 
 	if (!bIsOpen)
 	{
 		LightBulb->SetIntensity(10000);
+		Door->OnRep_ToggleDoor();
 		bIsOpen = true;
-		UE_LOG(LogTemp, Warning, TEXT("You Opened the door!"));
-		
-		Door->OpenDoor();
+		UE_LOG(LogTemp, Warning, TEXT("The door is %d"), bIsOpen);
 	}
 	else
 	{
 		LightBulb->SetIntensity(0);
+		Door->OnRep_ToggleDoor();
 		bIsOpen = false;
-		UE_LOG(LogTemp, Warning, TEXT("You Closed the door!"));
-		Door->CloseDoor();
+		UE_LOG(LogTemp, Warning, TEXT("The door is %d"), bIsOpen);
 	}
 }
 
@@ -76,4 +78,11 @@ void ALever::ShowInteractionWidget()
 void ALever::HideInteractionWidget()
 {
 	InteractionWidget->SetVisibility(false);
+}
+
+void ALever::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	DOREPLIFETIME(ALever, bIsOpen);
+	DOREPLIFETIME(ALever, Door);
+	DOREPLIFETIME(ALever, LightBulb);
 }

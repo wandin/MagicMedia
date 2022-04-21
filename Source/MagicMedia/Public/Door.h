@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 
-#include "Lever.h"
 #include "Door.generated.h"
 
 UCLASS()
@@ -19,12 +18,14 @@ public:
 
 protected:
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_ToggleDoor)
 	UStaticMeshComponent* Door;
 
-	UPROPERTY(EditAnywhere)
-	float OpenedYaw = 90.0f;
-	float ClosedYaw = -90.0f;
+	UPROPERTY(EditAnywhere, ReplicatedUsing = OnRep_ToggleDoor)
+	float DoorYaw = 90.0f;
+
+	UPROPERTY(ReplicatedUsing = OnRep_ToggleDoor)
+	FRotator CurrentRotation;
 
 public:	
 
@@ -33,8 +34,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void OpenDoor();
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
 
-	virtual void CloseDoor();
+	UFUNCTION()
+	void ToggleDoor();
 
+	UFUNCTION()
+	void OnRep_ToggleDoor();
 };

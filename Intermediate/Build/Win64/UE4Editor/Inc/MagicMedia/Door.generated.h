@@ -13,28 +13,54 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MAGICMEDIA_Door_generated_h
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_SPARSE_DATA
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_RPC_WRAPPERS
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_RPC_WRAPPERS_NO_PURE_DECLS
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_INCLASS_NO_PURE_DECLS \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_SPARSE_DATA
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnRep_ToggleDoor); \
+	DECLARE_FUNCTION(execToggleDoor);
+
+
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnRep_ToggleDoor); \
+	DECLARE_FUNCTION(execToggleDoor);
+
+
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADoor(); \
 	friend struct Z_Construct_UClass_ADoor_Statics; \
 public: \
 	DECLARE_CLASS(ADoor, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/MagicMedia"), NO_API) \
-	DECLARE_SERIALIZER(ADoor)
+	DECLARE_SERIALIZER(ADoor) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		Door=NETFIELD_REP_START, \
+		DoorYaw, \
+		CurrentRotation, \
+		NETFIELD_REP_END=CurrentRotation	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_INCLASS \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesADoor(); \
 	friend struct Z_Construct_UClass_ADoor_Statics; \
 public: \
 	DECLARE_CLASS(ADoor, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/MagicMedia"), NO_API) \
-	DECLARE_SERIALIZER(ADoor)
+	DECLARE_SERIALIZER(ADoor) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		Door=NETFIELD_REP_START, \
+		DoorYaw, \
+		CurrentRotation, \
+		NETFIELD_REP_END=CurrentRotation	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_STANDARD_CONSTRUCTORS \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ADoor(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ADoor) \
@@ -47,7 +73,7 @@ private: \
 public:
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_ENHANCED_CONSTRUCTORS \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ADoor(ADoor&&); \
@@ -58,32 +84,33 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ADoor)
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_PRIVATE_PROPERTY_OFFSET \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Door() { return STRUCT_OFFSET(ADoor, Door); } \
-	FORCEINLINE static uint32 __PPO__OpenedYaw() { return STRUCT_OFFSET(ADoor, OpenedYaw); }
+	FORCEINLINE static uint32 __PPO__DoorYaw() { return STRUCT_OFFSET(ADoor, DoorYaw); } \
+	FORCEINLINE static uint32 __PPO__CurrentRotation() { return STRUCT_OFFSET(ADoor, CurrentRotation); }
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_11_PROLOG
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_GENERATED_BODY_LEGACY \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_10_PROLOG
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_PRIVATE_PROPERTY_OFFSET \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_SPARSE_DATA \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_RPC_WRAPPERS \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_INCLASS \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_STANDARD_CONSTRUCTORS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_PRIVATE_PROPERTY_OFFSET \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_SPARSE_DATA \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_14_GENERATED_BODY \
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_PRIVATE_PROPERTY_OFFSET \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_SPARSE_DATA \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_INCLASS_NO_PURE_DECLS \
-	MagicMedia_Source_MagicMedia_Public_Door_h_14_ENHANCED_CONSTRUCTORS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_PRIVATE_PROPERTY_OFFSET \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_SPARSE_DATA \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS_NO_PURE_DECLS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
