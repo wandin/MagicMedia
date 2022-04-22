@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MagicMedia.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{DD6A5B92-7768-4DB5-99AA-C7ECCB1A4371}</UniqueIdentifier>
+      <UniqueIdentifier>{DCB7358B-F29F-4A6F-B6D4-223A58D44706}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MagicMedia.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{B758FCAA-FD4A-46C7-BE2F-BC08802223F1}</UniqueIdentifier>
+      <UniqueIdentifier>{FA6573E2-9DC2-43AB-8D4C-64E18FB7B058}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,13 +32,13 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MagicMedia">
-      <UniqueIdentifier>{B235E986-F95C-4DA6-8A80-7CC1CDFC57B1}</UniqueIdentifier>
+      <UniqueIdentifier>{8E8B5D4B-B477-47B8-8A52-E2A137A48E79}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MagicMedia\MagicMedia.Build.cs">
       <Filter>Source\MagicMedia</Filter>
     </None>
     <Filter Include="Source\MagicMedia\Private">
-      <UniqueIdentifier>{BDE08527-EFA0-4ADF-B954-4EE0639E43E9}</UniqueIdentifier>
+      <UniqueIdentifier>{6670C13A-C635-46BE-A1E4-F759B91DD090}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\MagicMedia\Private\Door.cpp">
       <Filter>Source\MagicMedia\Private</Filter>
@@ -62,7 +62,7 @@
       <Filter>Source\MagicMedia\Private</Filter>
     </ClCompile>
     <Filter Include="Source\MagicMedia\Public">
-      <UniqueIdentifier>{E090DB13-AB21-42A2-891B-EA4DD8490A73}</UniqueIdentifier>
+      <UniqueIdentifier>{B67BFE32-89FA-47E4-B323-F03DBE8131A4}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\MagicMedia\Public\Door.h">
       <Filter>Source\MagicMedia\Public</Filter>

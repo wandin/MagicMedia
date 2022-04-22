@@ -18,13 +18,13 @@ public:
 
 protected:
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_ToggleDoor)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, ReplicatedUsing = ToggleDoor)
 	UStaticMeshComponent* Door;
 
-	UPROPERTY(EditAnywhere, ReplicatedUsing = OnRep_ToggleDoor)
+	UPROPERTY(EditAnywhere, ReplicatedUsing = ToggleDoor)
 	float DoorYaw = 90.0f;
 
-	UPROPERTY(ReplicatedUsing = OnRep_ToggleDoor)
+	UPROPERTY(ReplicatedUsing = ToggleDoor)
 	FRotator CurrentRotation;
 
 public:	
@@ -36,9 +36,6 @@ public:
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
 
-	UFUNCTION()
+	UFUNCTION(NetMulticast, Reliable, WithValidation)
 	void ToggleDoor();
-
-	UFUNCTION()
-	void OnRep_ToggleDoor();
 };

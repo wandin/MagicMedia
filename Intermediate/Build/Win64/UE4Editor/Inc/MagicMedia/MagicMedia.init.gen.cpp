@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeMagicMedia_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xCE80F12A,
+				0xEA9301D8,
 				0x499845AF,
 				METADATA_PARAMS(nullptr, 0)
 			};

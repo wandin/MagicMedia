@@ -15,17 +15,21 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define MagicMedia_Source_MagicMedia_Public_Door_h_13_SPARSE_DATA
 #define MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS \
+	virtual bool ToggleDoor_Validate(); \
+	virtual void ToggleDoor_Implementation(); \
  \
-	DECLARE_FUNCTION(execOnRep_ToggleDoor); \
 	DECLARE_FUNCTION(execToggleDoor);
 
 
 #define MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual bool ToggleDoor_Validate(); \
+	virtual void ToggleDoor_Implementation(); \
  \
-	DECLARE_FUNCTION(execOnRep_ToggleDoor); \
 	DECLARE_FUNCTION(execToggleDoor);
 
 
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_EVENT_PARMS
+#define MagicMedia_Source_MagicMedia_Public_Door_h_13_CALLBACK_WRAPPERS
 #define MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADoor(); \
@@ -90,13 +94,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADoor); \
 	FORCEINLINE static uint32 __PPO__CurrentRotation() { return STRUCT_OFFSET(ADoor, CurrentRotation); }
 
 
-#define MagicMedia_Source_MagicMedia_Public_Door_h_10_PROLOG
+#define MagicMedia_Source_MagicMedia_Public_Door_h_10_PROLOG \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_EVENT_PARMS
+
+
 #define MagicMedia_Source_MagicMedia_Public_Door_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_PRIVATE_PROPERTY_OFFSET \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_SPARSE_DATA \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_CALLBACK_WRAPPERS \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_STANDARD_CONSTRUCTORS \
 public: \
@@ -109,6 +117,7 @@ public: \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_PRIVATE_PROPERTY_OFFSET \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_SPARSE_DATA \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	MagicMedia_Source_MagicMedia_Public_Door_h_13_CALLBACK_WRAPPERS \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_INCLASS_NO_PURE_DECLS \
 	MagicMedia_Source_MagicMedia_Public_Door_h_13_ENHANCED_CONSTRUCTORS \
 private: \

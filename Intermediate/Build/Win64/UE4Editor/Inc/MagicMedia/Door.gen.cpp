@@ -20,50 +20,30 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 // End Cross Module References
-	DEFINE_FUNCTION(ADoor::execOnRep_ToggleDoor)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->OnRep_ToggleDoor();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(ADoor::execToggleDoor)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->ToggleDoor();
+		if (!P_THIS->ToggleDoor_Validate())
+		{
+			RPC_ValidateFailed(TEXT("ToggleDoor_Validate"));
+			return;
+		}
+		P_THIS->ToggleDoor_Implementation();
 		P_NATIVE_END;
+	}
+	static FName NAME_ADoor_ToggleDoor = FName(TEXT("ToggleDoor"));
+	void ADoor::ToggleDoor()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ADoor_ToggleDoor),NULL);
 	}
 	void ADoor::StaticRegisterNativesADoor()
 	{
 		UClass* Class = ADoor::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "OnRep_ToggleDoor", &ADoor::execOnRep_ToggleDoor },
 			{ "ToggleDoor", &ADoor::execToggleDoor },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ADoor_OnRep_ToggleDoor_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADoor_OnRep_ToggleDoor_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Door.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoor_OnRep_ToggleDoor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoor, nullptr, "OnRep_ToggleDoor", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoor_OnRep_ToggleDoor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_OnRep_ToggleDoor_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ADoor_OnRep_ToggleDoor()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ADoor_OnRep_ToggleDoor_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADoor_ToggleDoor_Statics
 	{
@@ -77,7 +57,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		{ "ModuleRelativePath", "Public/Door.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoor_ToggleDoor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoor, nullptr, "ToggleDoor", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoor_ToggleDoor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_ToggleDoor_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ADoor_ToggleDoor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADoor, nullptr, "ToggleDoor", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADoor_ToggleDoor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADoor_ToggleDoor_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_ADoor_ToggleDoor()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -119,8 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MagicMedia,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADoor_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADoor_OnRep_ToggleDoor, "OnRep_ToggleDoor" }, // 1722013050
-		{ &Z_Construct_UFunction_ADoor_ToggleDoor, "ToggleDoor" }, // 3818351252
+		{ &Z_Construct_UFunction_ADoor_ToggleDoor, "ToggleDoor" }, // 3429833118
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::Class_MetaDataParams[] = {
@@ -135,20 +114,20 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		{ "ModuleRelativePath", "Public/Door.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_Door = { "Door", "OnRep_ToggleDoor", (EPropertyFlags)0x00200801000a002d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, Door), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_Door_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_Door_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_Door = { "Door", "ToggleDoor", (EPropertyFlags)0x00200801000a002d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, Door), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_Door_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_Door_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw_MetaData[] = {
 		{ "Category", "Door" },
 		{ "ModuleRelativePath", "Public/Door.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw = { "DoorYaw", "OnRep_ToggleDoor", (EPropertyFlags)0x0020080100000021, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, DoorYaw), METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw = { "DoorYaw", "ToggleDoor", (EPropertyFlags)0x0020080100000021, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, DoorYaw), METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation_MetaData[] = {
 		{ "ModuleRelativePath", "Public/Door.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation = { "CurrentRotation", "OnRep_ToggleDoor", (EPropertyFlags)0x0020080100000020, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, CurrentRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation_MetaData)) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation = { "CurrentRotation", "ToggleDoor", (EPropertyFlags)0x0020080100000020, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoor, CurrentRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoor_Statics::NewProp_CurrentRotation_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADoor_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_Door,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoor_Statics::NewProp_DoorYaw,
@@ -181,7 +160,7 @@ void EmptyLinkFunctionForGeneratedCodeDoor() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ADoor, 607981820);
+	IMPLEMENT_CLASS(ADoor, 1143071425);
 	template<> MAGICMEDIA_API UClass* StaticClass<ADoor>()
 	{
 		return ADoor::StaticClass();

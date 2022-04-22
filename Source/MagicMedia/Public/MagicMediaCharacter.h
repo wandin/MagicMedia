@@ -57,6 +57,7 @@ public:
 
 private:
 
+	UFUNCTION(Server, Reliable)
 	void StartInteract();
 
 	UFUNCTION()

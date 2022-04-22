@@ -15,17 +15,27 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_SPARSE_DATA
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS \
+	virtual bool OnRep_InteractWithMe_Validate(); \
+	virtual void OnRep_InteractWithMe_Implementation()=0; \
+	virtual bool InteractWithMe_Validate(); \
+	virtual void InteractWithMe_Implementation()=0; \
  \
 	DECLARE_FUNCTION(execOnRep_InteractWithMe); \
 	DECLARE_FUNCTION(execInteractWithMe);
 
 
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual bool OnRep_InteractWithMe_Validate(); \
+	virtual void OnRep_InteractWithMe_Implementation()=0; \
+	virtual bool InteractWithMe_Validate(); \
+	virtual void InteractWithMe_Implementation()=0; \
  \
 	DECLARE_FUNCTION(execOnRep_InteractWithMe); \
 	DECLARE_FUNCTION(execInteractWithMe);
 
 
+#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_EVENT_PARMS
+#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_CALLBACK_WRAPPERS
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	MAGICMEDIA_API UInteractionInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
@@ -82,6 +92,8 @@ protected: \
 public: \
 	typedef UInteractionInterface UClassType; \
 	typedef IInteractionInterface ThisClass; \
+	static void Execute_InteractWithMe(UObject* O); \
+	static void Execute_OnRep_InteractWithMe(UObject* O); \
 	virtual UObject* _getUObject() const { check(0 && "Missing required implementation."); return nullptr; }
 
 
@@ -91,15 +103,21 @@ protected: \
 public: \
 	typedef UInteractionInterface UClassType; \
 	typedef IInteractionInterface ThisClass; \
+	static void Execute_InteractWithMe(UObject* O); \
+	static void Execute_OnRep_InteractWithMe(UObject* O); \
 	virtual UObject* _getUObject() const { check(0 && "Missing required implementation."); return nullptr; }
 
 
-#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_10_PROLOG
+#define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_10_PROLOG \
+	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_EVENT_PARMS
+
+
 #define MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_SPARSE_DATA \
 	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS \
+	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_CALLBACK_WRAPPERS \
 	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_INCLASS_IINTERFACE \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
@@ -110,6 +128,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_SPARSE_DATA \
 	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_CALLBACK_WRAPPERS \
 	MagicMedia_Source_MagicMedia_Public_InteractionInterface_h_13_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

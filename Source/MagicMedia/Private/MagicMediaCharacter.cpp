@@ -78,9 +78,7 @@ void AMagicMediaCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
-
 }
-
 
 void AMagicMediaCharacter::BeginPlay()
 {
@@ -146,9 +144,9 @@ void AMagicMediaCharacter::MoveRight(float Value)
 	}
 }
 
-void AMagicMediaCharacter::StartInteract()
+void AMagicMediaCharacter::StartInteract_Implementation()
 {
 	if (Interface == nullptr) return;
 
-	Interface->OnRep_InteractWithMe();
+	Interface->InteractWithMe();
 }

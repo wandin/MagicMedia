@@ -49,12 +49,25 @@ void EmptyLinkFunctionForGeneratedCodeMagicMediaCharacter() {}
 		P_THIS->OnBoxBeginOverlap(Z_Param_OverlappedComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_OtherBodyIndex,Z_Param_bFromSweep,Z_Param_Out_SweepResult);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AMagicMediaCharacter::execStartInteract)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartInteract_Implementation();
+		P_NATIVE_END;
+	}
+	static FName NAME_AMagicMediaCharacter_StartInteract = FName(TEXT("StartInteract"));
+	void AMagicMediaCharacter::StartInteract()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AMagicMediaCharacter_StartInteract),NULL);
+	}
 	void AMagicMediaCharacter::StaticRegisterNativesAMagicMediaCharacter()
 	{
 		UClass* Class = AMagicMediaCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnBoxBeginOverlap", &AMagicMediaCharacter::execOnBoxBeginOverlap },
 			{ "OnBoxEndOverlap", &AMagicMediaCharacter::execOnBoxEndOverlap },
+			{ "StartInteract", &AMagicMediaCharacter::execStartInteract },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -199,6 +212,28 @@ void EmptyLinkFunctionForGeneratedCodeMagicMediaCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMagicMediaCharacter_StartInteract_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMagicMediaCharacter_StartInteract_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/MagicMediaCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMagicMediaCharacter_StartInteract_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMagicMediaCharacter, nullptr, "StartInteract", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00240CC1, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMagicMediaCharacter_StartInteract_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMagicMediaCharacter_StartInteract_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMagicMediaCharacter_StartInteract()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMagicMediaCharacter_StartInteract_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AMagicMediaCharacter_NoRegister()
 	{
 		return AMagicMediaCharacter::StaticClass();
@@ -245,6 +280,7 @@ void EmptyLinkFunctionForGeneratedCodeMagicMediaCharacter() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMagicMediaCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMagicMediaCharacter_OnBoxBeginOverlap, "OnBoxBeginOverlap" }, // 2510564572
 		{ &Z_Construct_UFunction_AMagicMediaCharacter_OnBoxEndOverlap, "OnBoxEndOverlap" }, // 4133163651
+		{ &Z_Construct_UFunction_AMagicMediaCharacter_StartInteract, "StartInteract" }, // 1430747392
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMagicMediaCharacter_Statics::Class_MetaDataParams[] = {
@@ -344,7 +380,7 @@ void EmptyLinkFunctionForGeneratedCodeMagicMediaCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMagicMediaCharacter, 3361625958);
+	IMPLEMENT_CLASS(AMagicMediaCharacter, 3140333346);
 	template<> MAGICMEDIA_API UClass* StaticClass<AMagicMediaCharacter>()
 	{
 		return AMagicMediaCharacter::StaticClass();

@@ -32,17 +32,19 @@ protected:
 
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION()
+
+	UFUNCTION(NetMulticast, Reliable, WithValidation)
 	virtual void InteractWithMe() override;
-	UFUNCTION()
-	virtual void OnRep_InteractWithMe() override;
 
+	UFUNCTION(NetMulticast, Reliable, WithValidation)
+	virtual void OnRep_InteractWithMe() override;
 
 	virtual void ShowInteractionWidget() override;
 	virtual void HideInteractionWidget() override;
+
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const;
 
@@ -64,5 +66,4 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	class UWidgetComponent* InteractionWidget;
-
 };

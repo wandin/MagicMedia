@@ -18,17 +18,23 @@ struct FHitResult;
 
 #define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_SPARSE_DATA
 #define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_RPC_WRAPPERS \
+	virtual void StartInteract_Implementation(); \
  \
 	DECLARE_FUNCTION(execOnBoxEndOverlap); \
-	DECLARE_FUNCTION(execOnBoxBeginOverlap);
+	DECLARE_FUNCTION(execOnBoxBeginOverlap); \
+	DECLARE_FUNCTION(execStartInteract);
 
 
 #define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void StartInteract_Implementation(); \
  \
 	DECLARE_FUNCTION(execOnBoxEndOverlap); \
-	DECLARE_FUNCTION(execOnBoxBeginOverlap);
+	DECLARE_FUNCTION(execOnBoxBeginOverlap); \
+	DECLARE_FUNCTION(execStartInteract);
 
 
+#define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_EVENT_PARMS
+#define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_CALLBACK_WRAPPERS
 #define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMagicMediaCharacter(); \
@@ -77,13 +83,17 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMagicMediaCharacter); \
 	FORCEINLINE static uint32 __PPO__InteractionBox() { return STRUCT_OFFSET(AMagicMediaCharacter, InteractionBox); }
 
 
-#define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_15_PROLOG
+#define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_15_PROLOG \
+	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_EVENT_PARMS
+
+
 #define MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_SPARSE_DATA \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_RPC_WRAPPERS \
+	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_CALLBACK_WRAPPERS \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_INCLASS \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_STANDARD_CONSTRUCTORS \
 public: \
@@ -96,6 +106,7 @@ public: \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_PRIVATE_PROPERTY_OFFSET \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_SPARSE_DATA \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_CALLBACK_WRAPPERS \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_INCLASS_NO_PURE_DECLS \
 	MagicMedia_Source_MagicMedia_Public_MagicMediaCharacter_h_18_ENHANCED_CONSTRUCTORS \
 private: \

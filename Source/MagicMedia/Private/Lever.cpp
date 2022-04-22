@@ -22,6 +22,7 @@ ALever::ALever()
 	InteractionWidget->SetupAttachment(RootComponent);
 				/*---------------------------------------------------------*/
 
+
 	bReplicates = true;	
 }
 
@@ -42,32 +43,42 @@ void ALever::Tick(float DeltaTime)
 
 }
 
-void ALever::InteractWithMe()
+void ALever::InteractWithMe_Implementation()
 {
-	if (HasNetOwner())
+	if (HasAuthority())
 	{
 		OnRep_InteractWithMe();
 	}
 }
 
-void ALever::OnRep_InteractWithMe()
+bool ALever::InteractWithMe_Validate()
+{
+	return true;
+}
+
+void ALever::OnRep_InteractWithMe_Implementation()
 {
 	if (Door == nullptr) return;
 
 	if (!bIsOpen)
 	{
 		LightBulb->SetIntensity(10000);
-		Door->OnRep_ToggleDoor();
+		Door->ToggleDoor();
 		bIsOpen = true;
 		UE_LOG(LogTemp, Warning, TEXT("The door is %d"), bIsOpen);
 	}
 	else
 	{
 		LightBulb->SetIntensity(0);
-		Door->OnRep_ToggleDoor();
+		Door->ToggleDoor();
 		bIsOpen = false;
 		UE_LOG(LogTemp, Warning, TEXT("The door is %d"), bIsOpen);
 	}
+}
+
+bool ALever::OnRep_InteractWithMe_Validate()
+{
+	return true;
 }
 
 void ALever::ShowInteractionWidget()
@@ -83,6 +94,5 @@ void ALever::HideInteractionWidget()
 void ALever::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	DOREPLIFETIME(ALever, bIsOpen);
-	DOREPLIFETIME(ALever, Door);
 	DOREPLIFETIME(ALever, LightBulb);
 }

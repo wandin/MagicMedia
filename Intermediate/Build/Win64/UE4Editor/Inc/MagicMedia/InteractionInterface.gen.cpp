@@ -22,15 +22,33 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OnRep_InteractWithMe();
+		if (!P_THIS->OnRep_InteractWithMe_Validate())
+		{
+			RPC_ValidateFailed(TEXT("OnRep_InteractWithMe_Validate"));
+			return;
+		}
+		P_THIS->OnRep_InteractWithMe_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(IInteractionInterface::execInteractWithMe)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->InteractWithMe();
+		if (!P_THIS->InteractWithMe_Validate())
+		{
+			RPC_ValidateFailed(TEXT("InteractWithMe_Validate"));
+			return;
+		}
+		P_THIS->InteractWithMe_Implementation();
 		P_NATIVE_END;
+	}
+	void IInteractionInterface::InteractWithMe()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_InteractWithMe instead.");
+	}
+	void IInteractionInterface::OnRep_InteractWithMe()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_OnRep_InteractWithMe instead.");
 	}
 	void UInteractionInterface::StaticRegisterNativesUInteractionInterface()
 	{
@@ -53,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 		{ "ModuleRelativePath", "Public/InteractionInterface.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionInterface_InteractWithMe_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionInterface, nullptr, "InteractWithMe", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInteractionInterface_InteractWithMe_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionInterface_InteractWithMe_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionInterface_InteractWithMe_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionInterface, nullptr, "InteractWithMe", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInteractionInterface_InteractWithMe_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionInterface_InteractWithMe_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UInteractionInterface_InteractWithMe()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -75,7 +93,7 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 		{ "ModuleRelativePath", "Public/InteractionInterface.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionInterface, nullptr, "OnRep_InteractWithMe", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionInterface, nullptr, "OnRep_InteractWithMe", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80024CC0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -104,8 +122,8 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MagicMedia,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UInteractionInterface_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UInteractionInterface_InteractWithMe, "InteractWithMe" }, // 1861033145
-		{ &Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe, "OnRep_InteractWithMe" }, // 2828019742
+		{ &Z_Construct_UFunction_UInteractionInterface_InteractWithMe, "InteractWithMe" }, // 2875758972
+		{ &Z_Construct_UFunction_UInteractionInterface_OnRep_InteractWithMe, "OnRep_InteractWithMe" }, // 1264982502
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UInteractionInterface_Statics::Class_MetaDataParams[] = {
@@ -139,13 +157,43 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UInteractionInterface, 3026764086);
+	IMPLEMENT_CLASS(UInteractionInterface, 3759319724);
 	template<> MAGICMEDIA_API UClass* StaticClass<UInteractionInterface>()
 	{
 		return UInteractionInterface::StaticClass();
 	}
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UInteractionInterface(Z_Construct_UClass_UInteractionInterface, &UInteractionInterface::StaticClass, TEXT("/Script/MagicMedia"), TEXT("UInteractionInterface"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UInteractionInterface);
+	static FName NAME_UInteractionInterface_InteractWithMe = FName(TEXT("InteractWithMe"));
+	void IInteractionInterface::Execute_InteractWithMe(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()));
+		UFunction* const Func = O->FindFunction(NAME_UInteractionInterface_InteractWithMe);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (IInteractionInterface*)(O->GetNativeInterfaceAddress(UInteractionInterface::StaticClass())))
+		{
+			I->InteractWithMe_Implementation();
+		}
+	}
+	static FName NAME_UInteractionInterface_OnRep_InteractWithMe = FName(TEXT("OnRep_InteractWithMe"));
+	void IInteractionInterface::Execute_OnRep_InteractWithMe(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()));
+		UFunction* const Func = O->FindFunction(NAME_UInteractionInterface_OnRep_InteractWithMe);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (IInteractionInterface*)(O->GetNativeInterfaceAddress(UInteractionInterface::StaticClass())))
+		{
+			I->OnRep_InteractWithMe_Implementation();
+		}
+	}
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER
 #pragma warning (pop)

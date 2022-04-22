@@ -8,13 +8,24 @@
 
 // Add default functionality here for any IInteractionInterface functions that are not pure virtual.
 
-void IInteractionInterface::InteractWithMe()
+void IInteractionInterface::InteractWithMe_Implementation()
 {
 }
 
-void IInteractionInterface::OnRep_InteractWithMe()
+bool IInteractionInterface::InteractWithMe_Validate()
+{
+	return true;
+}
+
+
+void IInteractionInterface::OnRep_InteractWithMe_Implementation()
 {
 
+}
+
+bool IInteractionInterface::OnRep_InteractWithMe_Validate()
+{
+	return true;
 }
 
 void IInteractionInterface::ShowInteractionWidget()

@@ -26,12 +26,7 @@ void ADoor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ADoor::ToggleDoor()
-{
-	OnRep_ToggleDoor();
-}
-
-void ADoor::OnRep_ToggleDoor()
+void ADoor::ToggleDoor_Implementation()
 {
 	UWorld* const World = GetWorld();
 	if (World == NULL) return;
@@ -39,6 +34,11 @@ void ADoor::OnRep_ToggleDoor()
 	CurrentRotation = GetActorRotation();
 	CurrentRotation.Yaw += DoorYaw;
 	SetActorRotation(CurrentRotation);
+}
+
+bool ADoor::ToggleDoor_Validate()
+{
+	return true;
 }
 
 void ADoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
